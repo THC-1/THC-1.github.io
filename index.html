@@ -214,6 +214,7 @@
         /* 主标题区域 */
         .hero-section {
             position: relative;
+            padding-right: 200px;
         }
 
         .hero-title {
@@ -415,6 +416,104 @@
         .stagger-4 { animation-delay: 0.4s; }
         .stagger-5 { animation-delay: 0.5s; }
 
+        /* --- 左侧区域整合样式 --- */
+        .left-col {
+            gap: 0 !important;
+            padding-top: 150px !important;
+        }
+
+        /* 调整左侧文字间距 */
+        .nav-item span {
+            letter-spacing: 2px !important;
+        }
+
+        .brand-info h2 {
+            letter-spacing: 3px !important;
+        }
+
+        .brand-info p {
+            letter-spacing: 2px !important;
+        }
+
+        .social-title {
+            letter-spacing: 3px !important;
+        }
+
+        /* 调整导航项间距 */
+        .nav-item {
+            padding: 25px 0 !important;
+        }
+
+        /* 功能卡片区域布局调整 */
+        .features-section {
+            display: grid !important;
+            grid-template-columns: repeat(3, 1fr) !important;
+            gap: 40px !important;
+        }
+
+        /* 时钟卡片样式 */
+        .time-card {
+            grid-column: 1 / -1 !important;
+            margin-top: 20px !important;
+        }
+
+        /* 响应式调整 */
+        @media (max-width: 1024px) {
+            .features-section {
+                grid-template-columns: repeat(2, 1fr) !important;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .features-section {
+                grid-template-columns: 1fr !important;
+            }
+        }
+
+        /* 极简时钟卡片样式 */
+        .minimal-time-card {
+            position: absolute;
+            top: 0;
+            right: 0;
+            text-align: right;
+            padding: 20px;
+            opacity: 0.6;
+            background: transparent;
+            backdrop-filter: none;
+            border: none;
+            box-shadow: none;
+        }
+
+        .minimal-time-card #date {
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+        }
+
+        .minimal-time-card #clock {
+            font-size: 1.5rem;
+            font-weight: 300;
+            letter-spacing: 1px;
+            margin-bottom: 6px;
+        }
+
+        .minimal-time-card #weather {
+            font-size: 0.7rem;
+            letter-spacing: 1px;
+        }
+
+        /* 响应式调整 */
+        @media (max-width: 1024px) {
+            .minimal-time-card {
+                position: relative;
+                top: auto;
+                right: auto;
+                text-align: left;
+                margin-top: 30px;
+                padding: 0;
+            }
+        }
+
     </style>
 </head>
 <body>
@@ -424,75 +523,81 @@
     <div class="container">
         <!-- 左侧区域 -->
         <div class="left-col">
-            <!-- 品牌标识卡片 -->
-            <div class="glass-card brand-card fade-in-up">
-                <div class="brand-avatar">
-                    <i class="fas fa-code"></i>
+            <!-- 统一侧边栏 -->
+            <div class="glass-card sidebar-card fade-in-up">
+                <!-- 品牌标识区域 -->
+                <div class="brand-section" style="display: flex; align-items: center; gap: 20px;">
+                    <div class="brand-avatar">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <div class="brand-info">
+                        <h2>好难</h2>
+                        <p>开启你的全栈之旅</p>
+                    </div>
                 </div>
-                <div class="brand-info">
-                    <h2>好难</h2>
-                    <p>开启你的全栈之旅</p>
+                
+                <!-- 分隔线 -->
+                <div class="divider"></div>
+                
+                <!-- 导航菜单区域 -->
+                <div class="nav-section">
+                    <div class="nav-item">
+                        <i class="fas fa-home"></i>
+                        <span>首页</span>
+                    </div>
+                    <div class="nav-item">
+                        <i class="fas fa-book"></i>
+                        <span>学习路径</span>
+                    </div>
+                    <div class="nav-item">
+                        <i class="fas fa-code"></i>
+                        <span>项目实战</span>
+                    </div>
+                    <div class="nav-item">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span>技能认证</span>
+                    </div>
+                    <div class="nav-item">
+                        <i class="fas fa-user"></i>
+                        <span>个人中心</span>
+                    </div>
                 </div>
-            </div>
-
-            <!-- 导航卡片 -->
-            <div class="glass-card nav-card fade-in-up stagger-1">
-                <div class="nav-item">
-                    <i class="fas fa-home"></i>
-                    <span>首页</span>
-                </div>
-                <div class="nav-item">
-                    <i class="fas fa-book"></i>
-                    <span>学习路径</span>
-                </div>
-                <div class="nav-item">
-                    <i class="fas fa-code"></i>
-                    <span>项目实战</span>
-                </div>
-                <div class="nav-item">
-                    <i class="fas fa-graduation-cap"></i>
-                    <span>技能认证</span>
-                </div>
-                <div class="nav-item">
-                    <i class="fas fa-user"></i>
-                    <span>个人中心</span>
-                </div>
-            </div>
-
-            <!-- 社交链接卡片 -->
-            <div class="glass-card social-card fade-in-up stagger-2">
-                <div class="social-title">Connect</div>
-                <div class="social-links">
-                    <i class="fab fa-github"></i>
-                    <i class="fab fa-twitter"></i>
-                    <i class="fab fa-linkedin"></i>
-                    <i class="fas fa-envelope"></i>
+                
+                <!-- 分隔线 -->
+                <div class="divider"></div>
+                
+                <!-- 社交链接区域 -->
+                <div class="social-section">
+                    <div class="social-title">Connect</div>
+                    <div class="social-links">
+                        <i class="fab fa-github"></i>
+                        <i class="fab fa-twitter"></i>
+                        <i class="fab fa-linkedin"></i>
+                        <i class="fas fa-envelope"></i>
+                    </div>
                 </div>
             </div>
         </div>
 
         <!-- 右侧区域 -->
         <div class="right-col">
-            <!-- 顶部区域：标题 + 时间 -->
-            <div style="display: grid; grid-template-columns: 1fr auto; gap: 40px; align-items: start; margin-bottom: 60px;" class="fade-in-up stagger-3">
-                <!-- 主标题区域 -->
-                <div class="hero-section">
-                    <div class="hero-title">开启你的<br>全栈之旅</div>
-                    <div class="hero-subtitle">
-                        从前端到后端，从设计到部署<br>
-                        一站式全栈开发学习平台<br>
-                        让技术梦想照进现实
-                    </div>
-                    
-                    <!-- 行动按钮 -->
-                    <div class="cta-section">
-                        <button class="btn btn-primary">开始探索</button>
-                        <button class="btn btn-secondary">了解更多</button>
-                    </div>
+            <!-- 主标题区域 -->
+            <div class="hero-section fade-in-up stagger-3">
+                <div class="hero-title">开启你的<br>全栈之旅</div>
+                <div class="hero-subtitle">
+                    从前端到后端，从设计到部署<br>
+                    一站式全栈开发学习平台<br>
+                    让技术梦想照进现实
                 </div>
-
-                <!-- 时钟卡片 - 移动到顶部右侧 -->
-                <div class="glass-card time-card fade-in-up stagger-4" style="min-width: 280px;">
+                
+                <!-- 行动按钮 -->
+                <div class="cta-section">
+                    <button class="btn btn-primary">开始探索</button>
+                    <button class="btn btn-secondary">了解更多</button>
+                </div>
+                
+                <!-- 时钟卡片 - 放置在右侧空白区域 -->
+                <div class="minimal-time-card fade-in-up stagger-4">
                     <div id="date">2026年 01月 20日 星期二</div>
                     <div id="clock">00:00:00</div>
                     <div id="weather">地球 阴 26°C</div>
@@ -570,6 +675,3 @@
     </script>
 </body>
 </html>
-
-
-
